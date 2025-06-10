@@ -1,0 +1,48 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load dataset
+data = pd.read_csv(r"/home/vishnu1988/new_expression_plots/Development_plots/Expression/Orthogroup232_expression_data.csv")
+  # Replace with actual filename
+
+# Compute gene-gene correlation
+correlation_matrix = data.set_index("GeneID").T.corr()
+
+# Normalize correlation values (0 to 1)
+corr_min, corr_max = correlation_matrix.min().min(), correlation_matrix.max().max()
+normalized_corr = (correlation_matrix - corr_min) / (corr_max - corr_min)
+
+# Save correlation matrix
+normalized_corr.to_csv("correlation_matrix_232.csv")
+
+# Prepare scatter plot data
+scatter_data = []
+conditions = data.columns[1:]
+for condition in conditions:
+    for gene1 in data["GeneID"]:
+        for gene2 in data["GeneID"]:
+            if gene1 != gene2:
+                scatter_data.append([
+                    data.loc[data["GeneID"] == gene1, condition].values[0],
+                    normalized_corr.loc[gene1, gene2],
+                    condition
+                ])
+
+# Convert to DataFrame and save
+scatter_df = pd.DataFrame(scatter_data, columns=["Expression", "Normalized_Correlation", "Condition"])
+scatter_df.to_csv("scatter_data_232.csv", index=False)
+
+# Generate scatter plot
+plt.figure(figsize=(8, 6))
+sns.scatterplot(
+    data=scatter_df, x="Expression", y="Normalized_Correlation", 
+    hue="Condition", style="Condition", alpha=0.6, s=100, edgecolor="black", linewidth=1
+)
+plt.xlabel("Expression Values")
+plt.ylabel("Normalized Correlation")
+plt.gca().tick_params(direction="out")
+sns.despine()
+plt.legend(title="Condition", bbox_to_anchor=(1.05, 1), loc="upper left")
+plt.savefig("scatter_plot_2846.pdf", bbox_inches="tight", dpi=300)
+plt.show()
