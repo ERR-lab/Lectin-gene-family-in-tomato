@@ -1,0 +1,44 @@
+DATASET_BINARY
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+#label is used in the legend table (can be changed later)
+DATASET_LABEL,label1
+
+#dataset color (can be changed later)
+COLOR,#ff0000
+
+#shapes for each field column; possible choices are
+#1: rectangle 
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: check mark
+FIELD_SHAPES,3
+
+#field labels
+FIELD_LABELS,f1
+
+DATA
+#node 9606 will have a filled circle, outline of a left triangle, nothing in the 3rd column and an rectangle outline in column 4
+#9606,1,0,-1,0
+
+Solyd01g051790.1,1
+Solyd01g058480.1,1
+VIT_212s0028g01430.1,1
+VIT_208s0007g00810.1,1
+VIT_207s0005g02560.1,1
+VIT_203s0038g03400.1,1
+Solyd10g055860.1,1
+SPI12g04915.1,1
+Solyd12g072550.1,1
+Solyd12g066090.1,1
+VIT_201s0011g01760.1,1
+VIT_201s0011g01740.1,1
+VIT_208s0007g04190.1,1
+Solyd07g055000.1,1
+VIT_219s0014g04165.1,1
+Solyd12g050330.1,1
+
+

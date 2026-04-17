@@ -1,0 +1,49 @@
+R code 1
+library("writexl")
+library("readxl")
+
+data=read_excel("path to file")
+lectindata=read_excel("path to file")
+colnames(data)
+colnames(lectindata)
+geneID=as.data.frame(data$"...2")
+tpm=as.data.frame(data$"...5")
+lectin=as.data.frame(lectindata$"Gene ID")
+lectin[1,]
+
+j=nrow(lectin)
+foldchangevalues=c()
+index=c()
+genenumber=c()
+i=1
+for (i in 1:247)
+{
+index=which(lectin[i,]==geneID)
+if(length(index)>0) {
+genenumber[i]=index[1]}
+else {
+genenumber[i] = NA }
+i=i+1
+}
+geneID[genenumber,]
+tpmvalues=as.data.frame(tpm[genenumber,])
+
+R code 2
+install.packages("pheatmap")
+install.packages("fastcluster")
+install.packages("circlize")
+library(fastcluster)
+library(pheatmap)
+library("writexl")
+library("readxl")
+
+data=as.data.frame(read_excel("path to file"))
+foldchange=data[,-1:-2]
+
+annotation_row=data.frame(Group=data$"Type")
+rownames(annotation_row)=data[,1]
+rownames(foldchange)
+rownames(foldchange)=data[,1]
+pdf("path to file",width=25,height=30)
+pheatmap(scale(foldchange),annotation_legend=TRUE,legend=TRUE,annotation_legend_side="bottom",legend_position="right",annotation_row=annotation_row,cluster_cols=FALSE,cellwidth=25,cellheight=10,show_rownames=TRUE,clustering_method="ward.D2",clustering_distance_rows="euclidean",color=colorRampPalette(c("blue","white","orange"))(100))
+dev.off()
