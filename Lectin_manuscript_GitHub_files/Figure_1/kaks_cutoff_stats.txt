@@ -1,0 +1,44 @@
+CUTOFF ADDED -
+Ka > 0.01
+Ks < 1.2
+Effective Length >= 200
+
+BEFORE CUTOFF
+Total comparisons : 1139580
+Ka/Ks>1 : 15389
+Percentage Ka/Ks>1 : 1.35%
+Ka/Ks>5 : 77
+Percentage Ka/Ks>5 : 0.01%
+
+AFTER CUTOFF
+Total comparisons : 835796
+Ka/Ks>1 : 9912
+Percentage Ka/Ks>1 : 1.19%
+Ka/Ks>5 : 77
+Percentage Ka/Ks>5 : 0.01%
+
+DIFFERENCE
+Ka/Ks>1 Number Difference : 5477
+Ka/Ks>1 Percentage Difference : 0.16%
+Ka/Ks>5 Number Difference : 0
+Ka/Ks>5 Percentage Difference : 0.00%
+
+NUMBER OF PARALOG / ORTHOLOG PAIRS
+Total comparisons : 835796
+Paralog : 43615 (5.22%)
+Ortholog : 792181 (94.78%)
+Unknown : 0
+
+FOR Ka/Ks > 1
+Total Ka/Ks>1 : 9912
+Paralog : 1891 (19.08% of Ka/Ks>1)
+Ortholog : 8021 (80.92% of Ka/Ks>1)
+Paralog Ka/Ks>1 rate : 4.34% of all paralogs
+Ortholog Ka/Ks>1 rate : 1.01% of all orthologs
+
+FOR Ka/Ks > 5
+Total Ka/Ks>5 : 34
+Paralog : 17 (50.00% of Ka/Ks>5)
+Ortholog : 17 (50.00% of Ka/Ks>5)
+Paralog Ka/Ks>5 rate : 0.0390% of all paralogs
+Ortholog Ka/Ks>5 rate : 0.0021% of all orthologs
